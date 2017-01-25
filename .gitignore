@@ -49,3 +49,11 @@ Makefile
 
 *~
 /include/version.h
+
+# VS2015 files
+
+*.VC.db
+*.opendb
+*.vcxproj.user
+/visualc_net/Debug/**/*
+/visualc_net/Release/**/*
