@@ -88,7 +88,11 @@ static struct {
 	Bit32u blocksize;
 } mixer;
 
+#ifdef _WIN32
+Bit8u __declspec(align(4)) MixTemp[MIXER_BUFSIZE];
+#else
 Bit8u MixTemp[MIXER_BUFSIZE] __attribute__((aligned(4)));
+#endif
 
 MixerChannel * MIXER_AddChannel(MIXER_Handler handler,Bitu freq,const char * name) {
 	MixerChannel * chan=new MixerChannel();

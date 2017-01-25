@@ -35,7 +35,12 @@
 typedef Bit8u * (* VGA_Line_Handler)(Bitu vidstart, Bitu line);
 
 static VGA_Line_Handler VGA_DrawLine;
+
+#ifdef _WIN32
+static __declspec(align(4)) Bit8u TempLine[SCALER_MAXWIDTH * 4];
+#else
 static Bit8u TempLine[SCALER_MAXWIDTH * 4] __attribute__((aligned(4)));
+#endif
 
 static Bit8u * VGA_Draw_1BPP_Line(Bitu vidstart, Bitu line) {
 	const Bit8u *base = vga.tandy.draw_base + ((line & vga.tandy.line_mask) << vga.tandy.line_shift);

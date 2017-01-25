@@ -1388,9 +1388,6 @@ bool GFX_StartUpdate(Bit8u * & pixels,Bitu & pitch) {
 
 
 void GFX_EndUpdate( const Bit16u *changedLines ) {
-#if (HAVE_DDRAW_H) && defined(WIN32)
-	int ret;
-#endif
 #if SDL_VERSION_ATLEAST(2,0,0)
 	if (!sdl.update_display_contents)
 		return;
@@ -1461,7 +1458,7 @@ void GFX_EndUpdate( const Bit16u *changedLines ) {
 #if (HAVE_DDRAW_H) && defined(WIN32)
 	case SCREEN_SURFACE_DDRAW:
 		SDL_UnlockSurface(sdl.blit.surface);
-		ret=IDirectDrawSurface3_Blt(
+		int ret=IDirectDrawSurface3_Blt(
 			sdl.surface->hwdata->dd_writebuf,&sdl.blit.rect,
 			sdl.blit.surface->hwdata->dd_surface,0,
 			DDBLT_WAIT, NULL);
