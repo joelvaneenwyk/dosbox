@@ -1,0 +1,13 @@
+version: 1.0.{build}
+configuration: Release
+platform: x86
+install:
+- cmd: >-
+    git submodule update --init --recursive
+
+    python src\version.py include/version.h . none
+before_build:
+- cmd: build/build_dependencies.bat
+build:
+  project: visualc_net/dosbox.sln
+  verbosity: minimal
