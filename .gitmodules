@@ -1,0 +1,12 @@
+[submodule "thirdparty/zlib/1.2.11"]
+	path = thirdparty/zlib/1.2.11
+	url = https://github.com/madler/zlib
+[submodule "thirdparty/SDL/2.0.5"]
+	path = thirdparty/SDL/2.0.5
+	url = https://github.com/SDL-mirror/SDL
+[submodule "thirdparty/libpng/1.6.28"]
+	path = thirdparty/libpng/1.6.28
+	url = https://github.com/glennrp/libpng
+[submodule "thirdparty/SDL_net/2.0.1"]
+	path = thirdparty/SDL_net/2.0.1
+	url = https://github.com/SDL-mirror/SDL_net
