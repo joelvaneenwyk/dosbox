@@ -55,5 +55,11 @@ Makefile
 *.VC.db
 *.opendb
 *.vcxproj.user
+/visualc_net/.vs/**/*
 /visualc_net/Debug/**/*
 /visualc_net/Release/**/*
+
+# Third party that we will not submit
+
+/thirdparty/cmake/**/*
+/bin/**/*

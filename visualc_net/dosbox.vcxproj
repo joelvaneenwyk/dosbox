@@ -54,7 +54,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../include;../src/platform/visualc;../thirdparty/SDL/2.0.5/include;../thirdparty/SDL_net/2.0.1/include;../thirdparty/libpng/1.2.37/include;../thirdparty/zlib/1.2.3/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../include;../src/platform/visualc;../bin/sdl/include/SDL2;../thirdparty/SDL_net/2.0.1;../bin/libpng/include;../bin/zlib/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -70,14 +70,14 @@
       <CompileAs>Default</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;winmm.lib;zlib.lib;libpng.lib;sdl2_net.lib;sdl2main.lib;sdl2.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;msimg32.lib;version.lib;winmm.lib;imm32.lib;zlibstaticd.lib;libpng16_staticd.lib;sdl2main.lib;sdl2.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>.\Debug/dosbox.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/dosbox.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>../thirdparty/SDL/2.0.5/lib/x86;../thirdparty/SDL_net/2.0.1/lib/x86;../thirdparty/libpng/1.2.37/lib;../thirdparty/zlib/1.2.3/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../bin/sdl/lib;../thirdparty/SDL_net/2.0.1/lib/x86;../bin/libpng/lib;../bin/zlib/lib</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <TypeLibraryName>.\Debug/dosbox.tlb</TypeLibraryName>
@@ -88,9 +88,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>xcopy /Y ..\thirdparty\SDL\2.0.5\bin\SDL2.dll $(OutputPath)
-xcopy /Y ..\thirdparty\SDL_net\2.0.1\bin\x86\SDL2_net.dll $(OutputPath)
-xcopy /Y ..\thirdparty\libpng\1.2.37\bin\libpng12.dll $(OutputPath)</Command>
+      <Command>xcopy /Y ..\bin\sdl\bin\SDL2.dll $(OutputPath)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -100,7 +98,7 @@ xcopy /Y ..\thirdparty\libpng\1.2.37\bin\libpng12.dll $(OutputPath)</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>true</OmitFramePointers>
-      <AdditionalIncludeDirectories>../include;../src/platform/visualc;../thirdparty/SDL/2.0.5/include;../thirdparty/SDL_net/2.0.1/include;../thirdparty/libpng/1.2.37/include;../thirdparty/zlib/1.2.3/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../include;../src/platform/visualc;../bin/sdl/include/SDL2;../thirdparty/SDL_net/2.0.1;../bin/libpng/include;../bin/zlib/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -119,7 +117,7 @@ xcopy /Y ..\thirdparty\libpng\1.2.37\bin\libpng12.dll $(OutputPath)</Command>
       <CompileAs>Default</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;winmm.lib;zlib.lib;libpng.lib;sdl2_net.lib;sdl2main.lib;sdl2.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;msimg32.lib;version.lib;winmm.lib;imm32.lib;zlibstatic.lib;libpng16_static.lib;sdl2main.lib;sdl2.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>.\Release/dosbox.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -128,7 +126,7 @@ xcopy /Y ..\thirdparty\libpng\1.2.37\bin\libpng12.dll $(OutputPath)</Command>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <FixedBaseAddress>false</FixedBaseAddress>
-      <AdditionalLibraryDirectories>../thirdparty/SDL/2.0.5/lib/x86;../thirdparty/SDL_net/2.0.1/lib/x86;../thirdparty/libpng/1.2.37/lib;../thirdparty/zlib/1.2.3/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../bin/sdl/lib;../thirdparty/SDL_net/2.0.1/lib/x86;../bin/libpng/lib;../bin/zlib/lib</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <TypeLibraryName>.\Release/dosbox.tlb</TypeLibraryName>
@@ -139,9 +137,7 @@ xcopy /Y ..\thirdparty\libpng\1.2.37\bin\libpng12.dll $(OutputPath)</Command>
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>xcopy /Y ..\thirdparty\SDL\2.0.5\bin\SDL2.dll $(OutputPath)
-xcopy /Y ..\thirdparty\SDL_net\2.0.1\bin\x86\SDL2_net.dll $(OutputPath)
-xcopy /Y ..\thirdparty\libpng\1.2.37\bin\libpng12.dll $(OutputPath)</Command>
+      <Command>xcopy /Y ..\bin\sdl\bin\SDL2.dll $(OutputPath)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
