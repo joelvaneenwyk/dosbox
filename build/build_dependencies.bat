@@ -38,9 +38,7 @@ cmake --build . --target install --config Debug
 cmake --build . --target install --config Release
 IF ERRORLEVEL 1 goto ERROR
 
-%DEVENV% %~dp0../thidparty/SDL_net/2.0.1/VisualC/SDL_net.sln /build "Release|Win32"
-
-%DEVENV% %~dp0../visualc_net/dosbox.sln /build "Release|x86"
+goto END
 
 :ERROR
 echo Ran into an error! Error Level: %ERRROLEVEL%
