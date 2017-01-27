@@ -12,8 +12,7 @@ set DEVENV="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\deve
 
 if not exist %~dp0..\bin mkdir %~dp0..\bin
 
-cd ..
-python src\version.py include/version.h . none
+python %~dp0..\src\version.py %~dp0..\include\version.h %~dp0..\ none
 
 cd %ZLIB%
 if exist build rmdir /q /s build
